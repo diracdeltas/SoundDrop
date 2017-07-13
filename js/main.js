@@ -51,7 +51,7 @@ const fetchStream = (url) => {
         const artist = url.split('/')[3]
         playerElement.querySelector('iframe').src = streamUrl
         playerElement.style.display = 'block'
-        playerElement.querySelector('a').href = artist ? `https://soundcloud.com/${artist}` : url
+        document.getElementById('artist').href = artist ? `https://soundcloud.com/${artist}` : url
         document.getElementById('archiver').href = `https://web.archive.org/save/${url}`
         return
       }
