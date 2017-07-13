@@ -5,6 +5,7 @@ const TRACK_BASE_URL = 'https://api.soundcloud.com/tracks'
 
 const errorElement = document.getElementById('error')
 const playerElement = document.getElementById('player')
+const inputElement = document.querySelector('input')
 
 const showError = (msg) => {
   errorElement.innerText = msg
@@ -60,5 +61,10 @@ const fetchStream = (url) => {
 }
 
 document.querySelector('button').addEventListener('click', () => {
-  fetchStream(document.querySelector('input').value)
+  fetchStream(inputElement.value)
 })
+
+window.onload = () => {
+  inputElement.focus()
+  inputElement.select()
+}
