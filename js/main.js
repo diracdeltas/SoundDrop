@@ -52,6 +52,7 @@ const fetchStream = (url) => {
         playerElement.querySelector('iframe').src = streamUrl
         playerElement.style.display = 'block'
         playerElement.querySelector('a').href = artist ? `https://soundcloud.com/${artist}` : url
+        document.getElementById('archiver').href = `https://web.archive.org/save/${url}`
         return
       }
     }
@@ -64,6 +65,12 @@ const fetchStream = (url) => {
 
 document.querySelector('button').addEventListener('click', () => {
   fetchStream(inputElement.value)
+})
+
+inputElement.addEventListener('keyup', (e) => {
+  if (e.keyCode === 13) {
+    fetchStream(inputElement.value)
+  }
 })
 
 window.onload = () => {
