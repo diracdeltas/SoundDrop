@@ -48,8 +48,10 @@ const fetchStream = (url) => {
       const trackId = trackIdMatch && trackIdMatch[1]
       if (trackId) {
         const streamUrl = getStreamUrl(trackId)
+        const artist = url.split('/')[3]
         playerElement.querySelector('iframe').src = streamUrl
         playerElement.style.display = 'block'
+        playerElement.querySelector('a').href = artist ? `https://soundcloud.com/${artist}` : url
         return
       }
     }
